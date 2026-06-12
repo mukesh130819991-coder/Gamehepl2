@@ -9,9 +9,11 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
+    - name: Extract zip
+      run: unzip FakepixelMod.zip
     - name: Build
-      run: chmod +x gradlew && ./gradlew build
+      run: cd FakepixelMod && chmod +x gradlew && ./gradlew build
     - uses: actions/upload-artifact@v3
       with:
-        name: FakepixelMod
-        path: build/libs/*.jar
+        name: FakepixelMod-jar
+        path: FakepixelMod/build/libs/*.jar
