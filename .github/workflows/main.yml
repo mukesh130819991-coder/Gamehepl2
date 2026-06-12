@@ -11,8 +11,15 @@ jobs:
         distribution: 'temurin'
     - name: Extract zip
       run: unzip FakepixelMod.zip
+    - name: Setup Gradle
+      run: |
+        cd FakepixelMod
+        chmod +x gradlew
+        ./gradlew setupDecompWorkspace --no-daemon
     - name: Build
-      run: cd FakepixelMod && chmod +x gradlew && ./gradlew build
+      run: |
+        cd FakepixelMod
+        ./gradlew build --no-daemon
     - uses: actions/upload-artifact@v4
       with:
         name: FakepixelMod-jar
