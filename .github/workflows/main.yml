@@ -10,7 +10,7 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
     - name: Extract zip
-      run: unzip FakepixelMod.zip
+      run: unzip FakepixelMod_clean.zip
     - name: Setup Gradle
       run: |
         cd FakepixelMod
